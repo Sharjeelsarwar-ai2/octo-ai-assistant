@@ -42,15 +42,12 @@ export function GlowingOrb({ state = 'idle', onClick, onStopSpeaking }) {
             : 'Click to interact'
         }
       >
-        {state === 'listening' ? (
-          <i className="bi bi-mic-fill fs-3 text-white"></i>
-        ) : state === 'speaking' ? (
-          <i className="bi bi-volume-up-fill fs-3 text-white"></i>
-        ) : state === 'thinking' ? (
-          <i className="bi bi-cpu-fill fs-3 text-white"></i>
-        ) : (
-          <i className="bi bi-stars fs-3 text-white"></i>
-        )}
+        <img
+          src="/octo-mascot.png"
+          alt="OCTO AI mascot"
+          className="octo-mascot"
+          draggable="false"
+        />
       </div>
 
       <div className="d-flex align-items-center gap-2 mt-2">
