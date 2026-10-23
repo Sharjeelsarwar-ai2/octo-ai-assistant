@@ -965,6 +965,58 @@ button:focus-visible, .mode-chip-card:focus-visible, textarea:focus-visible {
   filter: drop-shadow(0 7px 20px rgba(0, 229, 255, 0.6));
 }
 
+.glowing-orb.state-sleeping .octo-mascot {
+  animation: octo-sleep-breathe 2.4s ease-in-out infinite;
+  filter: drop-shadow(0 7px 16px rgba(167, 139, 250, 0.4));
+}
+
+.speech-bubble {
+  position: absolute;
+  z-index: 5;
+  top: -38px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: max-content;
+  max-width: min(240px, 75vw);
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  border-radius: 16px;
+  background: rgba(14, 23, 39, 0.96);
+  color: #e9fbff;
+  font-size: 0.76rem;
+  line-height: 1.35;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 18px rgba(0, 229, 255, 0.14);
+  transform: translateX(-50%);
+  animation: bubble-pop 0.24s ease-out both;
+}
+
+.speech-bubble > span {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 11px;
+  height: 11px;
+  border-right: 1px solid rgba(0, 229, 255, 0.4);
+  border-bottom: 1px solid rgba(0, 229, 255, 0.4);
+  background: rgba(14, 23, 39, 0.96);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.glowing-orb.state-sleeping .speech-bubble {
+  border-color: rgba(167, 139, 250, 0.45);
+  color: #ddd6fe;
+}
+
 @keyframes octo-idle-float {
   0%, 100% { transform: translateY(0) rotate(-2deg); }
   50% { transform: translateY(-7px) rotate(2deg); }
@@ -984,6 +1036,16 @@ button:focus-visible, .mode-chip-card:focus-visible, textarea:focus-visible {
 @keyframes octo-speaking-bounce {
   from { transform: translateY(1px) scale(0.98) rotate(-2deg); }
   to { transform: translateY(-7px) scale(1.06) rotate(2deg); }
+}
+
+@keyframes octo-sleep-breathe {
+  0%, 100% { transform: scale(1) rotate(-2deg); }
+  50% { transform: scale(0.96) rotate(2deg); }
+}
+
+@keyframes bubble-pop {
+  from { opacity: 0; margin-top: 6px; }
+  to { opacity: 1; margin-top: 0; }
 }
 
 @media (max-width: 576px) {
