@@ -1,6 +1,14 @@
 import React from 'react';
 
-export function GlowingOrb({ state = 'idle', onClick, onStopSpeaking }) {
+const MASCOT_IMAGES = {
+  idle: '/octo-mascot.png',
+  listening: '/octo-mascot-listening.png',
+  thinking: '/octo-mascot-thinking.png',
+  speaking: '/octo-mascot-talking.png',
+  sleeping: '/octo-mascot-sleeping.png'
+};
+
+export function GlowingOrb({ state = 'idle', onClick, onStopSpeaking, speechText = '' }) {
   // state can be: 'idle' | 'listening' | 'thinking' | 'speaking'
 
   const getStatusText = () => {
@@ -42,11 +50,27 @@ export function GlowingOrb({ state = 'idle', onClick, onStopSpeaking }) {
             : 'Click to interact'
         }
       >
+        {(state === 'speaking' || state === 'sleeping') && (
+          <div className="speech-bubble" role="status" aria-live="polite">
+            {state === 'sleeping' ? (
+              <span aria-label="Sleeping">Zzz...</span>
+            ) : (
+              <>
+                <i className="bi bi-soundwave" aria-hidden="true"></i>
+                <span>{speechText ? `${speechText.slice(0, 92)}${speechText.length > 92 ? '…' : ''}` : 'Speaking…'}</span>
+              </>
+            )}
+          </div>
+        )}
         <img
-          src="/octo-mascot.png"
-          alt="OCTO AI mascot"
+          src={MASCOT_IMAGES[state] || MASCOT_IMAGES.idle}
+          alt={`OCTO AI ${state} expression`}
           className="octo-mascot"
           draggable="false"
+          onError={(event) => {
+            event.currentTarget.onerror = null;
+            event.currentTarget.src = MASCOT_IMAGES.idle;
+          }}
         />
       </div>
 
