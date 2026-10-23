@@ -1,0 +1,9 @@
+{
+  "installCommand": "npm run install:vercel",
+  "buildCommand": "npm run build:vercel",
+  "outputDirectory": "frontend/dist",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/[...path]" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

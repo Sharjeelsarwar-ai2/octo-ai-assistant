@@ -1,0 +1,31 @@
+{
+  "name": "octo-ai-backend",
+  "version": "2.0.0",
+  "description": "Backend API server for OCTO AI - Sharjeel's Personal AI Voice & Chat Assistant",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "octo-ai",
+    "ai-assistant",
+    "voice-assistant",
+    "mern",
+    "speech-recognition"
+  ],
+  "author": "Sharjeel",
+  "license": "MIT",
+  "dependencies": {
+    "@google/genai": "^2.30.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "groq-sdk": "^1.6.0",
+    "mongoose": "^8.9.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

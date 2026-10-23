@@ -1,0 +1,26 @@
+{
+  "name": "aara-ai-assistant",
+  "version": "1.0.0",
+  "description": "Aara — Mr. Dinesh Kumar's Personal AI Voice & Chat Assistant",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "install:vercel": "npm --prefix backend ci && npm --prefix frontend ci",
+    "build:vercel": "npm --prefix frontend run build",
+    "setup": "npm --prefix backend install && npm --prefix frontend install",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "start": "npm --prefix backend start"
+  },
+  "keywords": [
+    "aara",
+    "ai-assistant",
+    "voice-assistant",
+    "mern",
+    "speech-recognition",
+    "speech-synthesis"
+  ],
+  "author": "Mr. Dinesh Kumar",
+  "license": "MIT"
+}
