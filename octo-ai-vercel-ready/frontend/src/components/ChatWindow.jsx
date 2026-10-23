@@ -15,6 +15,7 @@ export function ChatWindow({
   isSpeaking
 }) {
   const bottomRef = useRef(null);
+  const latestAssistantText = [...messages].reverse().find((message) => message.role === 'assistant')?.content || '';
 
   // Auto-scroll to bottom on new messages
   useEffect(() => {
@@ -62,6 +63,7 @@ export function ChatWindow({
               state={voiceState}
               onClick={onOrbClick}
               onStopSpeaking={onStopSpeaking}
+              speechText={latestAssistantText}
             />
           </div>
 
@@ -109,6 +111,7 @@ export function ChatWindow({
               state={voiceState}
               onClick={onOrbClick}
               onStopSpeaking={onStopSpeaking}
+              speechText={latestAssistantText}
             />
           </div>
 
