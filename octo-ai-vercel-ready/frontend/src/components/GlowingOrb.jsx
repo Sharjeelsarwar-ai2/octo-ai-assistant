@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const MASCOT_IMAGES = {
-  idle: '/octo-mascot.png',
-  listening: '/octo-mascot-listening.png',
-  thinking: '/octo-mascot-thinking.png',
-  speaking: '/octo-mascot-talking.png',
-  sleeping: '/octo-mascot-sleeping.png'
+  idle: '/octo-mascot.svg',
+  listening: '/octo-mascot-listening.svg',
+  thinking: '/octo-mascot-thinking.svg',
+  speaking: '/octo-mascot-talking.svg',
+  sleeping: '/octo-mascot-sleeping.svg'
 };
 
 export function GlowingOrb({ state = 'idle', onClick, onStopSpeaking, speechText = '' }) {
   // state can be: 'idle' | 'listening' | 'thinking' | 'speaking'
+  // If every mascot file fails to load, never leave a broken-image icon
+  // blinking under the float/bob animations: fall back to an emoji mascot.
+  const [imageFailed, setImageFailed] = useState(false);
+  const [triedIdle, setTriedIdle] = useState(false);
+  useEffect(() => {
+    setTriedIdle(false);
+    setImageFailed(false);
+  }, [state]);
 
   const getStatusText = () => {
     switch (state) {
@@ -62,16 +70,27 @@ export function GlowingOrb({ state = 'idle', onClick, onStopSpeaking, speechText
             )}
           </div>
         )}
-        <img
-          src={MASCOT_IMAGES[state] || MASCOT_IMAGES.idle}
-          alt={`OCTO AI ${state} expression`}
-          className="octo-mascot"
-          draggable="false"
-          onError={(event) => {
-            event.currentTarget.onerror = null;
-            event.currentTarget.src = MASCOT_IMAGES.idle;
-          }}
-        />
+        {imageFailed ? (
+          <div className="octo-mascot d-flex align-items-center justify-content-center" style={{ fontSize: 84 }} role="img" aria-label={`OCTO AI ${state} expression`}>
+            🐙
+          </div>
+        ) : (
+          <img
+            key={state}
+            src={MASCOT_IMAGES[state] || MASCOT_IMAGES.idle}
+            alt={`OCTO AI ${state} expression`}
+            className="octo-mascot"
+            draggable="false"
+            onError={(event) => {
+              if (!triedIdle && event.currentTarget.src !== MASCOT_IMAGES.idle) {
+                setTriedIdle(true);
+                event.currentTarget.src = MASCOT_IMAGES.idle;
+              } else {
+                setImageFailed(true);
+              }
+            }}
+          />
+        )}
       </div>
 
       <div className="d-flex align-items-center gap-2 mt-2">

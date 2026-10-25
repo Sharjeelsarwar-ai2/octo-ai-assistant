@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- tentacles -->
+  <g fill="#7c3aed">
+    <rect x="90" y="380" width="44" height="110" rx="22"/><rect x="150" y="400" width="44" height="90" rx="22"/><rect x="210" y="380" width="44" height="110" rx="22"/><rect x="270" y="400" width="44" height="90" rx="22"/><rect x="330" y="380" width="44" height="110" rx="22"/><rect x="390" y="400" width="44" height="90" rx="22"/>
+  </g>
+  <g fill="#8b5cf6">
+    <rect x="120" y="380" width="44" height="110" rx="22"/><rect x="240" y="380" width="44" height="110" rx="22"/><rect x="360" y="380" width="44" height="110" rx="22"/>
+  </g>
+  <!-- head -->
+  <ellipse cx="256" cy="230" rx="186" ry="165" fill="#8b5cf6"/>
+  <ellipse cx="256" cy="230" rx="166" ry="145" fill="#a78bfa"/>
+  <!-- belly -->
+  <ellipse cx="256" cy="310" rx="106" ry="60" fill="#c4b5fd"/>
+  <!-- cheeks -->
+  <ellipse cx="130" cy="280" rx="20" ry="12" fill="#fb7185" opacity="0.8"/>
+  <ellipse cx="382" cy="280" rx="20" ry="12" fill="#fb7185" opacity="0.8"/>
+  <path d="M 148 210 Q 180 188 212 210" stroke="#1e1b4b" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M 300 210 Q 332 188 364 210" stroke="#1e1b4b" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M 231 318 Q 256 304 281 318" stroke="#1e1b4b" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <polygon points="190,105 322,105 280,45 230,45" fill="#1e1b4b"/><ellipse cx="256" cy="45" rx="32" ry="10" fill="white"/><text x="415" y="70" font-size="42" fill="#7c3aed" font-weight="bold">Z</text><text x="440" y="115" font-size="34" fill="#8b5cf6" font-weight="bold">z</text><text x="460" y="155" font-size="26" fill="#a78bfa" font-weight="bold">z</text>
+</svg>
