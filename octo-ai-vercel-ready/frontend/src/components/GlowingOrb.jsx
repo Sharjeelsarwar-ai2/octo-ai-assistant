@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
 const MASCOT_IMAGES = {
-  idle: '/octo-mascot.svg',
-  listening: '/octo-mascot-listening.svg',
-  thinking: '/octo-mascot-thinking.svg',
-  speaking: '/octo-mascot-talking.svg',
-  sleeping: '/octo-mascot-sleeping.svg'
+  idle: '/octo-mascot.png',
+  listening: '/octo-mascot-listening.png',
+  thinking: '/octo-mascot-thinking.png',
+  speaking: '/octo-mascot-talking.png',
+  sleeping: '/octo-mascot-sleeping.png'
 };
 
 export function GlowingOrb({ state = 'idle', onClick, onStopSpeaking, speechText = '' }) {
